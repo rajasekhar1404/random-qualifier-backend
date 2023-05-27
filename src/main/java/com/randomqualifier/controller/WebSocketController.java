@@ -18,6 +18,10 @@ public class WebSocketController {
     @SendTo("/qualifier/join")
     public Map<String, List<String>> joinGroup(@Payload Group group) {
 
+        if (group.getUsername() == null || group.getUsername().isEmpty()) {
+            return groupUsers;
+        }
+
         List<String> users = groupUsers.get(group.getGroupId());
         if (users == null || users.size() == 0) {
             groupUsers.put(group.getGroupId(), Arrays.asList(group.getUsername()));
