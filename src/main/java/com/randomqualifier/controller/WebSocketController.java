@@ -44,6 +44,7 @@ public class WebSocketController {
             Random random = new Random();
             int index = random.nextInt(groupUsers.getUsers().size());
             String qualifier = groupUsers.getUsers().get(index);
+            System.out.println(qualifier);
             groupUsers.setQualifier(qualifier);
             return groupUsers;
         }
